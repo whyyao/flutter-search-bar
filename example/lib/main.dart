@@ -35,11 +35,17 @@ class _SearchBarDemoHomeState extends State<SearchBarDemoHome> {
         .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
   }
 
+  void onChanged(String value){
+    setState(() => _scaffoldKey.currentState
+        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+  }
+
   _SearchBarDemoHomeState() {
     searchBar = new SearchBar(
         inBar: false,
         buildDefaultAppBar: buildAppBar,
         setState: setState,
+        onChanged: onChanged,
         onSubmitted: onSubmitted);
   }
 
